@@ -5,6 +5,7 @@
                 <label>{{ field.label }}</label>
                 <component :is="getComponentName(field)" :field="field"
                     :modelValue="modelValue ? modelValue[field.id] : ''" 
+                    :class="{'name-input': field.id === 'name'}"
                     @update="updateFormData"
                     :ref="el => setFieldRef(field, el)" />
             </div>
@@ -91,6 +92,12 @@ defineExpose({
 </script>
 
 <style scoped>
+
+.name-input {
+  color: #f5f1f1; 
+  font-weight: bold;
+  background-color: #424040;
+}
 .form-group {
     margin-bottom: 1rem;
 }
